@@ -1,0 +1,352 @@
+/*ーーー基本の設定ーーー*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #333;
+  position: relative;
+  font-size: 0.875rem;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+ul,ol{
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+
+/*---ヘッダー---*/
+
+#header {
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  position: sticky; /*fixedではなくstickyを使ってみた*/
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+}
+
+#header .wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo img{
+  width: 180px;
+  height: auto;
+}
+
+.hamburger {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 9px;
+  position: relative;
+  z-index: 1900;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  border-radius: 4px;
+  transition: all 0.5s;
+}
+
+
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: -300%;
+  width: 300px;
+  padding: 36px 50px;
+  transition: 0.3s;
+  z-index: 1800;
+}
+
+.nav li {
+  margin-bottom: 14px;
+}
+
+.nav.active {
+  left: 0;
+}
+
+/**あとからキレイな✕にする**/
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(0.5px,8px);
+  background-color: #fff;
+}
+
+.hamburger.active span:nth-child(2) {
+  transform: rotate(-45deg) translate(0.5px,-8px);
+  background-color: #fff;
+}
+
+
+#mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  cursor: pointer;
+  z-index: 1500;
+}
+
+#mask.active {
+  display: block;
+}
+
+.nav a {
+  color: #fff;
+}
+
+
+
+/*---商品リスト---*/
+
+.main {
+  padding: 40px 0 160px;
+}
+
+#main .product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 34px;
+}
+
+.main .product-list img {
+  margin-bottom: 10px;
+}
+
+.product-list p {
+  font-size: 0.75rem;
+}
+
+#main .viewMore{
+  text-align: center;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+
+/*---フッター---*/
+
+#footer {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+}
+
+#footer .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#footer ul {
+  display: flex;
+  gap: 30px;
+  font-size: 0.75rem;
+}
+
+#footer p {
+  font-size: 0.625rem;
+}
+
+
+
+/*---プロダクト---*/
+.page-title {
+  font-size: 0.875rem;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+.pagination ul {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+
+
+/*---アイテム詳細---*/
+#item {
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  width: 100%;
+}
+
+.main .item-img {
+  width: 50%;
+}
+
+.main .item-text {
+  width: 42%;
+}
+
+.item-text p {
+  margin-bottom: 30px;
+}
+
+.item-text dl {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-text dt {
+  width: 30%;
+}
+
+.item-text dd {
+  width: 70%;
+}
+
+.link-text {
+  display: block;
+  margin-top: 60px;
+  text-align: center;
+}
+
+
+
+/*---About---*/
+#about {
+  max-width: 600px;
+  width: 100%;
+}
+
+#about p {
+  margin-bottom: 30px;
+  line-height: 1.9;
+}
+
+
+/*---Company---*/
+.info {
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.info dt {
+  width: 30%;
+}
+
+.info dd {
+  width: 70%;
+}
+
+.info dt,
+.info dd {
+  padding: 20px 10px;
+  border-top: 1px solid  #DCDBDB;
+}
+
+.info dt:first-of-type,
+.info dd:first-of-type {
+  border-top: none;
+}
+
+.map {
+  max-width: 600px;
+  width: 100%;
+}
+
+.map iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  filter: grayscale(100%);
+}
+
+
+
+/*---レスポンシブ900px---*/
+@media (max-width: 900px) {
+  #main .product-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+    margin-bottom: 5px;
+  }
+
+  #footer .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  /*---アイテム詳細---*/
+  #item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main .item-img {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .main .item-text {
+    width: 100%;
+  }
+
+
+  /*---Company---*/
+  .info dt,
+  .info dd {
+    width: 100%;
+  }
+
+  .info dt {
+    padding: 20px 10px 10px;
+  }
+
+  .info dd {
+    border: none;
+    padding: 0 10px 20px;
+  }
+}
