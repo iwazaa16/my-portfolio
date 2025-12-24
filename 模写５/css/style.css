@@ -23,7 +23,7 @@ a {
 .wrapper {
   max-width: 1000px;
   width: 100%;
-  padding: 0 16px;
+  padding: 90px 16px 0;
   margin: 0 auto;
   text-align: center;
 }
@@ -97,6 +97,10 @@ header {
 
 
 /*MENUセクション*/
+.wrapper {
+  padding: 30px 16px 0;
+}
+
 .sec-hero {
   display: flex;
   justify-content: center;
@@ -120,7 +124,6 @@ header {
 .menu__inner {
   display: flex; 
   justify-content: center;
-  padding-top: 90px;
 }
 
 .menu__columns {
@@ -145,7 +148,7 @@ header {
   margin-bottom: 55px;
 }
 
-.menu__title {
+.sec-subtitle {
   font-size: 2.5rem;
   border-bottom: 6px solid #E03131;
   display: inline-block;
@@ -172,7 +175,112 @@ header {
 }
 
 
+/*ABOUTセクション*/
+.about__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
+.about__columns {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.about__column {
+  width: 50%;
+}
+
+.about__text{
+  text-align: left;
+  padding: 20px;
+  line-height: 2;
+}
+
+.read-more {
+  width: 160px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 15px 40px;
+  color: #000;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #e03131;
+  border-left: 2px solid #e03131;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid #e03131;
+  border-right: 2px solid #e03131;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.btn:hover::before,
+.btn:hover::after {
+  width: 100%;
+  height: 100%;
+}
+
+
+/*LOCATIONセクション*/
+.location-map {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 100%;
+  filter: grayscale(1);
+}
+
+.shop-info {
+  text-align: left;
+  margin-bottom: 10px;
+  font-style: normal;
+}
+
+.shop-info__hours {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.shop-info__tel {
+  text-align: left;
+}
+
+
+/*FOOTERセクション*/
+.footer {
+  font-size: 0.625rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+
+
+/*レスポンシブ*/
 @media (max-width: 768px) {
   
   
@@ -181,16 +289,47 @@ header {
     display: none;
   }
 
-  .sec {
-    background-image: none;
-  }
-
-  .sec::before {
-    content: "";
-    display: block;
+  .sec-hero {
     height: 200px;
     background-size: cover;
     background-position: center;
-    background-image: attr(data-bg url); /* JSでセット推奨 */
   }
+
+  .sec-title {
+    font-size: 2rem;
+  }
+
+  .bg-color {
+    padding-bottom: 80px;
+  }
+
+  .sec-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+  }
+
+  .menu__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu__columns {
+    width: 100%;
+    padding: 0;
+  }
+
+  .menu__columns:first-of-type {
+    border-right: none;
+    margin-bottom: 35px;
+  }
+
+  .about__columns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about__column {
+    width: 100%;
+  }
+
 }

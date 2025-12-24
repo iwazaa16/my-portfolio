@@ -8,9 +8,15 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 }, {
-  threshold: 0.5
+  threshold: 0
 });
 
 document.querySelectorAll('.sec').forEach(sec => {
   observer.observe(sec);
+});
+
+document.querySelectorAll('.sec').forEach(sec => {
+  const img = sec.dataset.bg;
+  const hero = sec.querySelector('.sec-hero');
+  hero.style.backgroundImage = `url(${img})`;
 });
