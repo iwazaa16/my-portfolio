@@ -12,4 +12,4 @@ mask.addEventListener('click',()=> {
   hamburger.classList.remove('active');
   nav.classList.remove('active');
   mask.classList.remove('active');
-})
+});
