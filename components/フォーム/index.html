@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORM</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <form id="contact-form" novalidate>
+    <div class="field">
+      <label for="name">お名前<span class="required"></span></label>
+      <input 
+        type="text"
+        id="name"
+        name="name"
+        placeholder="例：山田　太郎"
+        required
+      >
+      <p class="error" id="name-error">お名前を入力してください</p>
+    </div>
+    <div class="field">
+      <label for="email">メールアドレス<span class="required"></span></label>
+      <input
+        type="text"
+        id="email"
+        name="email"
+        placeholder="example@mail.com"
+        required
+      >
+      <p class="error" id="email-error">正しいメールアドレスを入力してください</p>
+    </div>
+    <div class="field">
+      <label for="message">お問い合わせ内容<span class="required"></span></label>
+      <textarea
+        id="message"
+        name="message"
+        placeholder="お問い合わせ内容をご入力ください"
+        required
+        rows="5"
+      ></textarea>
+      <p class="error" id="message-error">お問い合わせ内容をご入力ください</p>
+    </div>
+
+    <button type="submit" class="submit-btn">送信</button>
+    <p class="success" id="success-message">送信しました！</p>
+  </form>
+  <script src="js/script.js"></script>
+</body>
+</html>
