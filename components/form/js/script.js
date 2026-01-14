@@ -46,28 +46,39 @@ function validateField(isValid, errorEl) {
 }
 
 // ===== submit =====
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const isNameOK = validateField(
-    isValidName(nameInput.value),
-    nameError
-  );
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const message = messageInput.value.trim();
 
-  const isEmailOK = validateField(
-    isValidEmail(emailInput.value.trim()),
-    emailError
-  );
+  const isNameOK = validateField(isValidName(name), nameError);
+  const isEmailOK = validateField(isValidEmail(email), emailError);
+  const isMessageOK = validateField(isValidMessage(message), messageError);
 
-  const isMessageOK = validateField(
-    isValidMessage(messageInput.value.trim()),
-    messageError
-  );
+  if (!isNameOK || !isEmailOK || !isMessageOK) {
+    return;
+  }
 
-  if (isNameOK && isEmailOK && isMessageOK) {
-    successMessage.style.display = 'block';
+  const payload = {
+    name,
+    email,
+    message,
+  };
 
+  try {
     submitBtn.disabled = true;
+
+    await fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+
+    successMessage.style.display = 'block';
 
     setTimeout(() => {
       successMessage.style.display = 'none';
@@ -75,8 +86,12 @@ form.addEventListener('submit', (e) => {
     }, 3000);
 
     form.reset();
+  } catch (error) {
+    submitBtn.disabled = false;
+    alert('送信に失敗しました');
   }
 });
+
 
 
 // ===== input events =====
